@@ -26,20 +26,34 @@
       <div class="container vh-100">
         <div class="row">
           <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fas fa-angle-left fa-4x clickpoint"></i>
+            <i
+              class="fas fa-angle-left fa-4x clickpoint"
+              @click="decremento"
+            ></i>
           </div>
           <div class="col-6">
-            <div class="slider d-flex align-items-center">
+            <figure class="slider d-flex align-items-center">
               <img
                 v-for="(url, index) in images"
                 :src="url"
-                class="img-fluid active"
-                :class="index"
+                class="img-fluid"
+                :class="isActive(index)"
               />
-            </div>
+            </figure>
           </div>
           <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fas fa-angle-right fa-4x clickpoint"></i>
+            <i
+              class="fas fa-angle-right fa-4x clickpoint"
+              @click="incremento"
+            ></i>
+          </div>
+          <div id="navigator">
+            <div
+              v-for="(ball, index) in images"
+              class="ball mx-3 clickpoint"
+              :class="isActive(index)"
+              @click="setCurrentIndex(index)"
+            ></div>
           </div>
         </div>
       </div>

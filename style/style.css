@@ -1,11 +1,21 @@
 .slider {
   height: 500px;
+  position: relative;
 }
 .slider img {
   display: none;
 }
 .slider img.active {
   display: inline-block;
+  animation: fadeIn 0.5s linear;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .clickpoint {
   cursor: pointer;
@@ -20,4 +30,29 @@
 }
 .clickpoint:active {
   transform: scale(0.5);
+}
+#navigator {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 400px;
+}
+#navigator .ball {
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+#navigator .ball.active {
+  background-color: blue;
+  border-radius: 50%;
 }
