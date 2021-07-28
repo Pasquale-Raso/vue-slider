@@ -1,3 +1,23 @@
 .slider {
   height: 500px;
 }
+.slider img {
+  display: none;
+}
+.slider img.active {
+  display: inline-block;
+}
+.clickpoint {
+  cursor: pointer;
+  transition: 2s;
+}
+.clickpoint {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.clickpoint:hover {
+  transform: scale(1.5);
+}
+.clickpoint:active {
+  transform: scale(0.5);
+}
