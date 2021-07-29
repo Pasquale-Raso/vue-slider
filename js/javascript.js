@@ -16,6 +16,7 @@ const app = new Vue({
     isActive(index) {
       return this.currentIndex === index ? "active" : "";
     },
+
     incremento() {
       const lastIndex = this.images.length - 1;
       if (this.currentIndex === lastIndex) {
@@ -23,6 +24,7 @@ const app = new Vue({
       } else {
         this.currentIndex++;
       }
+      this.autoPlay();
     },
     decremento() {
       const lastIndex = this.images.length - 1;
@@ -31,10 +33,17 @@ const app = new Vue({
       } else {
         this.currentIndex--;
       }
+      this.autoPlay();
     },
     setCurrentIndex(newIndex) {
       this.currentIndex = newIndex;
     },
+    autoPlay() {
+      clearTimeout(this.clearTimeoutId);
+      this.clearTimeoutId = setTimeout(this.incremento, 4000);
+    },
+  },
+  created() {
+    this.autoPlay();
   },
 });
-var myVar;
